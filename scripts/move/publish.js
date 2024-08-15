@@ -7,16 +7,15 @@ const config = yaml.load(fs.readFileSync("./.aptos/config.yaml", "utf8"));
 const accountAddress = config["profiles"][`${process.env.PROJECT_NAME}-${process.env.VITE_APP_NETWORK}`]["account"];
 
 async function publish() {
-
   const move = new cli.Move();
 
   move
     .createObjectAndPublishPackage({
       packageDirectoryPath: "move",
-      addressName: "module_addr",
+      addressName: "counter_app_addr",
       namedAddresses: {
         // Publish module to new object, but since we create the object on the fly, we fill in the publisher's account address here
-        module_addr: accountAddress,
+        counter_app_addr: accountAddress,
       },
       profile: `${process.env.PROJECT_NAME}-${process.env.VITE_APP_NETWORK}`,
     })

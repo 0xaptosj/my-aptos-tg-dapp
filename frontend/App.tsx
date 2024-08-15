@@ -2,9 +2,7 @@ import { useWallet } from "@aptos-labs/wallet-adapter-react";
 // Internal Components
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "@/components/Header";
-import { WalletDetails } from "@/components/WalletDetails";
-import { NetworkInfo } from "@/components/NetworkInfo";
-import { AccountInfo } from "@/components/AcoountInfo";
+import { Counter } from "@/components/Counter";
 
 function App() {
   const { connected } = useWallet();
@@ -12,14 +10,11 @@ function App() {
   return (
     <>
       <Header />
-
       <div className="flex items-center justify-center flex-col">
         {connected ? (
           <Card>
             <CardContent className="flex flex-col gap-10 pt-6">
-              <WalletDetails />
-              <NetworkInfo />
-              <AccountInfo />
+              <Counter />
             </CardContent>
           </Card>
         ) : (
