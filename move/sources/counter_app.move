@@ -22,7 +22,11 @@ module counter_app_addr::counter_app {
 
     #[view]
     public fun count(user_addr: address): u64 acquires Counter {
-        let counter = borrow_global<Counter>(user_addr);
-        counter.count
+        if (exists<Counter>(user_addr)) {
+            let counter = borrow_global<Counter>(user_addr);
+            counter.count
+        } else {
+            0
+        }
     }
 }
