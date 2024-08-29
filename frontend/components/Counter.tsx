@@ -19,6 +19,11 @@ export function Counter() {
     queryKey: ["counter", account?.address],
     refetchInterval: 10_000,
     queryFn: async () => {
+      if (!account) {
+        return {
+          counter: 0,
+        };
+      }
       try {
         const counter = await surfClient()
           .view.count({
