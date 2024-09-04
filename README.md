@@ -1,7 +1,18 @@
+## Overview
+
+This template is made from the [boilerplate template](https://github.com/aptos-labs/create-aptos-dapp/tree/main/templates/boilerplate-template), the difference is that we make this possible to run as a Telegram mini app, and we change the app to be a simple clicker game.
+
+The difference between this template and the [tg-mini-app-seamless-signing-boilerplate-template](https://aptos.dev/en/build/create-aptos-dapp/templates/tg-mini-app-seamless-signing-boilerplate) is we are using Aptos wallet adaptor instead of mizu wallet sdk core, this way the UX is similar to all other dapps using wallet adapter, i.e. users need to approve the transaction explicitly. Also since mizu is the only Aptos wallet supports Telegram now, we removed other wallet options.
+
+You can access a live demo of the mini app by starting a chat with the example bot https://t.me/aptos_explict_siging_bot/.
+
+To deploy your own mini app, you need to create a bot, deploy the dapp by following the [deployment guide](https://aptos.dev/en/build/create-aptos-dapp/templates/boilerplate#deploy-to-a-live-server), link the web app to the bot. You can follow a complete guide on the [mini app doc](https://docs.telegram-mini-apps.com/platform/creating-new-app).
+
+To debug and test the mini app, follow the guide on [mini app doc](https://docs.telegram-mini-apps.com/platform/debugging).
+
 ## Create Aptos Dapp Boilerplate Template
 
 The Boilerplate template provides a starter dapp with all necessary dapp infrastructure and a simple wallet info implementation.
-
 
 ## The Boilerplate template provides:
 
@@ -17,6 +28,7 @@ The Boilerplate template provides a starter dapp with all necessary dapp infrast
 - Aptos TS SDK
 - Aptos Wallet Adapter
 - Node based Move commands
+- Telegram min app SDK
 
 ### What Move commands are available?
 
@@ -25,9 +37,9 @@ The tool utilizes [aptos-cli npm package](https://github.com/aptos-labs/aptos-cl
 Some commands are built-in the template and can be ran as a npm script, for example:
 
 - `npm run move:init` - a command to initialize an account to publish the Move contract and to configure the development environment
-- `npm run move:publish` - a command to publish the Move contract
 - `npm run move:test` - a command to run Move unit tests
 - `npm run move:compile` - a command to compile the Move contract
+- `npm run move:publish` - a command to publish the Move contract
 - `npm run deploy` - a command to deploy the dapp to Vercel
 
 For all other available CLI commands, can run `npx aptos` and see a list of all available commands.
